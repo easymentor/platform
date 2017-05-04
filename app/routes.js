@@ -6,6 +6,6 @@ module.exports = function (app) {
   app.use('/api/entity', require('./controllers/entity-controller'));
 
   app.get('*', function (req, res) {
-    res.sendFile(__dirname + '../client/index.html');
+    res.sendFile(__dirname + './client/index.html');
   });
 };
