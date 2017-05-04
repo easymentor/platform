@@ -1,0 +1,64 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Proposta de Consultoria</h4>
+            <p class="category">Explique o que você precisa para o consultor</p>
+          </div>
+          <div class="card-content">
+            <form (ngSubmit)="onSubmit()" *ngIf="!enviado">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Seu projeto</label>
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Detalhe a situação atual do seu projeto</label>
+                      <textarea class="form-control" rows="5" name="projeto" [(ngModel)]="proposta.projeto"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>O que você precisa do consultor ?</label>
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Fale do seu problema e o que você espera do consultor</label>
+                      <textarea class="form-control" rows="5" name="necessidade" [(ngModel)]="proposta.necessidade"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-danger pull-right">Enviar proposta</button>
+              <div class="clearfix"></div>
+            </form>
+            <div *ngIf="enviado">
+              Sua proposta foi enviada com sucesso
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" *ngIf="consultor">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a>
+              <img class="img" [src]="consultor.data.foto" />
+            </a>
+          </div>
+
+          <div class="content">
+            <h6 class="category text-gray">{{consultor.data.titulo}}</h6>
+            <h4 class="card-title">{{consultor.data.nome}}</h4>
+            <p class="card-content">
+              {{consultor.data.descricao}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

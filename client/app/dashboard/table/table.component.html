@@ -1,0 +1,32 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Suas propostas</h4>
+            <p class="category">Aqui estão todas as suas propostas enviadas aos consultores</p>
+          </div>
+          <div class="card-content table-responsive">
+            <table class="table">
+              <thead class="text-danger">
+                <tr>
+                  <th>Data</th>
+                  <th>Consultor</th>
+                  <th>Situação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let proposta of propostas">
+                  <td>{{proposta.data.data | date:'dd/MM/yyyy'}}</td>
+                  <td>{{proposta.consultor ? proposta.consultor.data.nome : ''}}</td>
+                  <td>{{proposta.data.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
